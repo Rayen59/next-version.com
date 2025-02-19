@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wavegram - Ultimate Secure Communication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sliding Panel */
+        .sliding-panel {
+            position: fixed;
+            left: -300px;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            padding: 2rem;
+            box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+        }
+
+        .sliding-panel.active {
+            left: 0;
+        }
+
+        .panel-content {
+            margin-top: 60px;
+        }
+
+        .panel-links {
+            list-style: none;
+        }
+
+        .panel-links li {
+            margin: 1.5rem 0;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .sliding-panel.active .panel-links li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .panel-links a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: color 0.3s;
+        }
+
+        .panel-links a:hover {
+            color: #3b82f6;
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.3s;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Content */
+        .hero-section {
+            text-align: center;
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            border-bottom: 3px solid #2563eb;
+        }
+
+        .security-badge {
+            background: #14532d;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 1.5rem 0;
+            border: 1px solid #22c55e;
+        }
+
+        .encryption-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .protocol-details {
+            background: #1e293b;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 4rem 0;
+            border: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sliding Panel -->
+    <button class="menu-toggle" onclick="togglePanel()">☰ Menu</button>
+    <div class="sliding-panel" id="sidePanel">
+        <div class="panel-content">
+            <ul class="panel-links">
+                <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="#"><i class="fas fa-shield-alt"></i>Security</a></li>
+                <li><a href="#"><i class="fas fa-download"></i>Downloads</a></li>
+                <li><a href="#"><i class="fas fa-lock"></i>Encryption</a></li>
+                <!-- Add your links here -->
+            </ul>
+        </div>
+    </div>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1>Wavegram</h1>
+            <div class="security-badge">
+                <i class="fas fa-shield-check"></i> Quantum-Resistant Encryption
+            </div>
+            <p class="tagline">Next-Generation Secure Communication</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="encryption-grid">
+            <div class="feature-card">
+                <i class="fas fa-user-secret fa-2x"></i>
+                <h2>Military-Grade Protection</h2>
+                <p>Multi-layered encryption combining AES-256, RSA-4096, and custom protocols</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-server fa-2x"></i>
+                <h2>Decentralized Network</h2>
+                <p>Global node distribution with blockchain-based verification</p>
+            </div>
+        </section>
+
+        <div class="protocol-details">
+            <h2>Security Architecture</h2>
+            <p>◈ End-to-End Quantum Encryption</p>
+            <p>◈ Zero-Knowledge Message Protocol</p>
+            <p>◈ Distributed Storage Network</p>
+            <p>◈ Government-Grade Resistance</p>
+        </div>
+
+        <div class="cta-section">
+            <a href="#" class="cta-button">
+                <i class="fas fa-rocket"></i> Get Started
+            </a>
+            <a href="#" class="cta-button">
+                <i class="fas fa-download"></i> Download App
+            </a>
+        </div>
+    </main>
+
+    <script>
+        function togglePanel() {
+            const panel = document.getElementById('sidePanel');
+            panel.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
